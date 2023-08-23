@@ -68,10 +68,13 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,engineer,capacity,user']
 	Route::get('/my_work_list', 'AnnualScheduleListManagement@MyWorkList');
 	Route::post('/save_schedule', 'AnnualScheduleManagement@CreateSchedule');
 	Route::post('/save_repair', 'ImprovementsManagement@CreateImprovement');
+	Route::post('/save_deployment', 'DeploymentsManagement@CreateImprovement');
 	Route::post('/save_worker', 'AnnualScheduleListManagement@SaveWorker');
 	Route::get('/edit_repair/{id}', 'ImprovementsManagement@EditImprovement');
+	Route::get('/edit_deployment/{id}', 'DeploymentsManagement@EditImprovement');
 	Route::post('/update_schedule/{id}', 'AnnualScheduleManagement@UpdateSchedule');
 	Route::post('/update_repair/{id}', 'ImprovementsManagement@UpdateImprovement');
+	Route::post('/update_deployment/{id}', 'DeploymentsManagement@UpdateImprovement');
 	Route::get('/update_status_list/{id}/{status}', 'AnnualScheduleListManagement@UpdateStatusList');
 	Route::post('/update_status_repair/{id}', 'ImprovementsManagement@UpdateStatus');
 	Route::post('/update_my_work', 'AnnualScheduleListManagement@UpdateMyWork');

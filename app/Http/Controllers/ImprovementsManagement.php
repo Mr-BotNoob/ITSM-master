@@ -51,18 +51,18 @@ class ImprovementsManagement extends Controller
     	$max = Improvement::max('repair_code');
         $check_max = Improvement::select('improvements.repair_code')->count();
         if ($check_max == null) {
-            $max_code = "D0001";
+            $max_code = "R0001";
         }else{
             $max_code = $max[1].$max[2].$max[3].$max[4];        
             $max_code++;
             if($max_code <= 9){
-                $max_code = "D000".$max_code;
+                $max_code = "R000".$max_code;
             }elseif ($max_code <= 99) {
-                $max_code = "D00".$max_code;
+                $max_code = "R00".$max_code;
             }elseif ($max_code <= 999) {
-                $max_code = "D0".$max_code;
+                $max_code = "R0".$max_code;
             }elseif ($max_code <= 99) {
-                $max_code = "D".$max_code;
+                $max_code = "R".$max_code;
             }
         }
         $id_user = Auth::id();

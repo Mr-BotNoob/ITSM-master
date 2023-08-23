@@ -169,7 +169,7 @@
   <div class="row">
     <div class="modal fade" id="addRepair" tabindex="-1" role="dialog" aria-labelledby="addRepairLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <form method="POST" action="{{ url('/save_repair') }}" id="add_modal">
+        <form method="POST" action="{{ url('/save_deployment') }}" id="add_modal">
           <div class="modal-content">
             <div class="modal-body">
               <div class="row">
@@ -659,7 +659,7 @@ $('#update_modal').submit(function(e){
     processData: false,
     success:function(data){
       if(data == 'success'){
-        window.location = "{{ url('/my_repair_machine') }}";
+        window.location = "{{ url('/my_deployment') }}";
       }
     }
   });
@@ -670,7 +670,7 @@ $(document).on('click', '.edit-btn', function(e) {
   e.preventDefault();
   var id = $(this).attr('id');
   $.ajax({
-    url: "{{ url('edit_repair') }}/" + id,
+    url: "{{ url('edit_deployment') }}/" + id,
     method: "GET",
     success:function(response){
       $('.id_repair').val(response.id);

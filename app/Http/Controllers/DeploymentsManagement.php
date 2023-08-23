@@ -88,11 +88,9 @@ class DeploymentsManagement extends Controller
     	$repairs->repair_date = $request->repair_date;
     	$repairs->lane = $request->lane;
     	$repairs->crq_remedy = $request->machine;
-    	$repairs->appname = $request->appname;
+    	$repairs->appname = $request->vmname;
     	$repairs->os= $request->os;
-        $repairs->appname = $request->appname;
-    	$repairs->os= $request->os;
-        $repairs->location = $request->location;
+        $repairs->location = $request->ipaddress;
     	$repairs->cpu= $request->cpu;
         $repairs->memory = $request->memory;
     	$repairs->disk= $request->disk;
@@ -107,7 +105,7 @@ class DeploymentsManagement extends Controller
         $log->save();
 
     	Session::flash('created', 'Added successfully created!');
-    	return redirect('/my_repair_machine');
+    	return redirect('/my_deployment');
     }
 
     // Edit Improvement
@@ -125,11 +123,9 @@ class DeploymentsManagement extends Controller
     	$repairs->repair_date = $request->repair_date;
     	$repairs->lane = $request->lane;
     	$repairs->crq_remedy = $request->machine;
-    	$repairs->appname = $request->appname;
+    	$repairs->appname = $request->vmname;
     	$repairs->os= $request->os;
-        $repairs->appname = $request->appname;
-    	$repairs->os= $request->os;
-        $repairs->location = $request->location;
+        $repairs->location = $request->ipaddress;
     	$repairs->cpu= $request->cpu;
         $repairs->memory = $request->memory;
     	$repairs->disk= $request->disk;
@@ -161,7 +157,7 @@ class DeploymentsManagement extends Controller
         $log->save();
 
     	Session::flash('deleted', 'Deployment successfully deleted!');
-    	return redirect('/my_repair_machine');
+    	return redirect('/my_deployment');
     }
 
     // Update Status
@@ -179,6 +175,6 @@ class DeploymentsManagement extends Controller
         $log->save();
 
         Session::flash('status_updated', 'Status successfully updated!');
-        return redirect('/my_repair_machine');
+        return redirect('/my_deployment');
     }
 }
